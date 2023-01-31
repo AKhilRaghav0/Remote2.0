@@ -12,9 +12,9 @@ jobs:
     - name: Downloading ngrok.
       run: |
         Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-        Invoke-WebRequest https://raw.githubusercontent.com/krypticbit09/Remote2.0/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/krypticbit09/Remote2.0/main/Admin.bat -OutFile wallpaper.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/krypticbit09/Remote2.0/main/loop.bat -OutFile loop.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/(replace_itwith_username)/Remote2.0/main/start.bat -OutFile start.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/(replace_itwith_username)/Remote2.0/main/Admin.bat -OutFile wallpaper.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/(replace_itwith_username)/Remote2.0/main/loop.bat -OutFile loop.bat
     - name: Extracting Ngrok File.
       run: Expand-Archive ngrok.zip
     - name: Connect via ngrok.
@@ -33,7 +33,7 @@ jobs:
         Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
         copy Anydesk.exe  C:\Users\Public\Desktop\Anydesk.exe
     - name: Creating Tunnel.
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp --region ap 3389"'
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp --region in 3389"'
     - name: Connect to the RDP.
       run: cmd /c start.bat
     - name: Success! You may now close this tab.
